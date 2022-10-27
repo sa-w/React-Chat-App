@@ -11,54 +11,17 @@ import Col from 'react-bootstrap/Col';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
-
-
 function Chat() {
 
     const [refreshChat, setRefreshChat] = useState(false)
     const [chats, setChats] = useState([])
     const [requireSignIn, setRequireSignIn] = useState(0)
 
-    const [rerender, setRerender] = useState(false);
-
     let searchParams = new URLSearchParams(document.location.search)
     let searchUser = searchParams.get("user")
     let userValue
 
-
-            // Create function to convert given string to the output below
-
-        // Input
-        const optionRule = '{1069} AND ({1070} OR {1071} OR {1072}) AND {1244} AND ({1245} OR {1339})';
-
-        // Output Example
-        /* const output = {
-        and: [
-            1069,
-            { or: [1070, 1071, 1072] },
-            1244,
-            { or: [1245, 1339] },
-        ]
-        }; */
-
-        let result = 'result'
-
-        console.log('result:', result);
-
-
-        function logString(a){
-
-            let start = {}
-
-
-
-        }
-
-
-
-
-
-
+    //Chat alert
     const chateSentNotify = () => toast.success('🦄 Success, Chat sent successfully!', {
         position: "top-right",
         autoClose: 5000,
@@ -70,15 +33,17 @@ function Chat() {
         theme: "light",
     });
 
+    //Update state for sign in
     function updateRequireSignIn(a) {
         setRequireSignIn(a)
     }
 
-
+    //Update state for refresh chat
     function updateRefreshChat(a) {
         setRefreshChat(a)
     }
 
+    //Update state for chats
     function updateChats(b) {
         setChats(b)
     }
@@ -118,6 +83,7 @@ function Chat() {
 
     }
 
+    //Run during every render
     useEffect(() => {
 
         let activeChat = localStorage.getItem("chat")
@@ -158,19 +124,7 @@ function Chat() {
 
     }, [refreshChat, requireSignIn])
 
-    const containerStyle = {
-        // height: '500px !important',
-        // width: '500px !important',
-        // marginLeft: '20% !important',
-        // marginRight:'20% !important',
-    }
-
-    /// height: '500px',
-    //width: '100%',
-    // marginLeft: '20%',
-    // marginRight:'20%',
-    // marginTop: '2%',
-
+    //Style for card
     const cardStyle = {
 
         height: '500px',
@@ -181,37 +135,21 @@ function Chat() {
 
     }
 
-    const newCardStyle = {
-
-        marginLeft: '0%',
-        marginRight: '0%',
-        marginTop: '2%',
-        height: '500px',
-        width: 'auto !important',
-    }
-    //};
-
+    //Style for sender within chat
     const senderStyle = {
         width: '100%',
         marginRight: '0',
         float: 'right'
     }
 
+    //Style for receiver within chat
     const receiverStyle = {
         width: '100%',
         marginLeft: '0',
         float: 'left'
     }
 
-    function updateChatMessage() {
-
-        setRerender(!rerender)
-       
-
-    }
-
-
-
+    //Sebd chat message
     function sendChatMessage(value) {
 
         let message = value
@@ -269,52 +207,6 @@ function Chat() {
             }
 
         }
-
-        /*if (user) {
-            let clientId = parseInt(user, 10)
-            let userName = "John"
-            let newMessage = { client: clientId, name: userName, message: value }
-    
-            if (messageObject) {
-                let tempMessageObject = JSON.parse(messageObject)
-                let size = Object.keys(tempMessageObject).length
-                let index = size + 1
-                tempMessageObject[index] = newMessage
-                // let newMessageObject = // Object.keys(messageObject).push(JSON.stringify({index:newMessage}))//Object.assign(tempMessageObject, newMessage)
-                localStorage.setItem("chat", JSON.stringify(tempMessageObject))
-                updateRefreshChat(1)
-            } else {
-                var data = {
-                    0: newMessage
-                }
-                localStorage.setItem("chat", JSON.stringify(data))
-                updateRefreshChat(1)
-            }
-    
-    
-        } else {
-    
-            let clientId = 0//parseInt(user, 10)
-            let userName = "Mary"
-            let newMessage = { client: clientId, name: userName, message: value }
-    
-            if (messageObject) {
-                let tempMessageObject = JSON.parse(messageObject)
-                let size = Object.keys(tempMessageObject).length
-                let index = size + 1
-                tempMessageObject[index] = newMessage
-                // let newMessageObject = // Object.keys(messageObject).push(JSON.stringify({index:newMessage}))//Object.assign(tempMessageObject, newMessage)
-                localStorage.setItem("chat", JSON.stringify(tempMessageObject))
-                updateRefreshChat(1)
-            } else {
-                var data = {
-                    0: newMessage
-                }
-                localStorage.setItem("chat", JSON.stringify(data))
-                updateRefreshChat(1)
-            }
-    
-        }*/
 
     }
 
@@ -418,18 +310,6 @@ function Chat() {
         }
 
     })
-
-    //Listen for new chats after every 1000ms/1s
-    //function listenForNewChats(){
-      /*  setInterval(function() {
-            
-           // updateChatMessage()
-
-            setRerender(!rerender)
-            console.log(rerender)
-
-        }, 1000);*/
-   // }
 
     return (
 
