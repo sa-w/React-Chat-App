@@ -36,4 +36,4 @@ export const chatSlice = createSlice({
 
 
 
-export default counterSlice.reducer;
+export default chatSlice.reducer;
