@@ -15,6 +15,8 @@ Make sure you have an active installation of `Node.js v16.17.0`, `npm v8.19.1` a
 <ol>
   <li>Clone this repo, to your local PC.</li>
   <li>From your terminal, navigate to this repo.</li>
+  <li>From your terminal, run this command <code>git checkout dev</code>. This command will take you to the dev branch where the repo is located</li>
+  <li>From your terminal, run this command <code>npm i</code>. This command will install all the necessary modules </li>
   <li>From your terminal, run this command <code>npm run start</code>. This command will start the application and it will be opened on your browser. </li>
   <li>For first time use, sign in to chat window using your name</li>
   <li>Add users to chat by clicking <code>ADD USER TO CHAT</code> button </li>
@@ -29,4 +31,3 @@ and will be displayed on right side of chat window</li>
 and will be displayed on left side of chat window</li>
 <li> To access all and/or latest chats, scroll within the chat window </li>
 </ol>
-
